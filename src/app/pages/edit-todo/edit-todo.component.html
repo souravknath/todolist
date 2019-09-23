@@ -1,0 +1,25 @@
+<div class="container-fluid">
+        <div class="card" style="margin-top: 10px">
+            <div class="card-body">
+                <h3 style="text-align: center">EDIT TODO</h3>
+                <form [formGroup]="todoForm" novalidate>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" formControlName="title" [(ngModel)] = "tododata.title" #title id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="des">Description:</label>
+                        <textarea class="form-control" formControlName="description" [(ngModel)] = "tododata.description" #description id="des"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" formControlName="date" [(ngModel)] = "tododata.date" #date id="date">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" (click)="editTodo()" [disabled]="todoForm.pristine || todoForm.invalid"
+                            class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
