@@ -13,6 +13,9 @@ export class TodoComponent implements OnInit {
   constructor(private router:Router, private commonService: CommonService, private fb: FormBuilder, private toastr: ToastrService) {
     this.createForm();
   }
+  /**
+  * This method will create a form group
+  */
   createForm() {
     this.todoForm = this.fb.group({
       title: ['', Validators.required],
@@ -22,6 +25,9 @@ export class TodoComponent implements OnInit {
   }
   ngOnInit() {
   }
+  /**
+  * This method will save the data in localStorage
+  */
   addTodo() {
     this.commonService.saveTodo({ title: this.todoForm.controls.title.value, description: this.todoForm.controls.description.value, date: this.todoForm.controls.date.value })
     this.router.navigate(['/']);

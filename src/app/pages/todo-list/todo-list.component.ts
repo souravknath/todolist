@@ -14,9 +14,16 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.getTodo()
   }
+  /**
+  * This method will fetching the data from local storage
+  */
   getTodo() {
     this.list =  this.commonService.getTodo()
   }
+  /**
+  * This method will delete the perticular object
+  * @param index
+  */
   deleteTodo(index) {
     this.commonService.deleteTodo(index)
     this.list = []
